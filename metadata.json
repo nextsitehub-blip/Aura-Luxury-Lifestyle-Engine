@@ -1,0 +1,6 @@
+{
+  "name": "Aura Luxury Lifestyle Engine",
+  "description": "An ultra-premium lifestyle curation engine showcasing handcrafted furniture, designer lighting, and architectural art pieces.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
