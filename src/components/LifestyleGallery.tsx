@@ -224,7 +224,7 @@ export default function LifestyleGallery() {
                 <div className="absolute inset-0 bg-gradient-to-tr from-white/0 via-white/5 to-white/0 opacity-0 group-hover:opacity-100 transition-opacity duration-1000 pointer-events-none" />
 
                 {/* Bottom Narrative Banner Overlay - Visible on Hover */}
-                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-matte-black/85 via-matte-black/50 to-transparent p-6 md:p-8 translate-y-3 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">
+                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-matte-black/90 via-matte-black/60 to-transparent p-5 md:p-8 lg:translate-y-3 lg:opacity-0 lg:group-hover:translate-y-0 lg:group-hover:opacity-100 transition-all duration-500 opacity-100 translate-y-0">
                   <div className="space-y-2">
                     <div className="flex justify-between items-center">
                       <span className="font-mono text-[8px] tracking-widest text-bronze uppercase font-bold">

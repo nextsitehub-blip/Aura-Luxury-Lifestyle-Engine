@@ -97,7 +97,7 @@ export default function LuxuryInteriorShowcase({ onOpenConcierge }: LuxuryInteri
         </div>
 
         {/* Fullscreen Interactive Cinematic Stage */}
-        <div className="relative overflow-hidden aspect-[16/9] w-full rounded-xs border border-stone/25 bg-stone-light/10 shadow-lg">
+        <div className="relative overflow-hidden aspect-[4/3] sm:aspect-[16/10] md:aspect-[16/9] w-full rounded-xs border border-stone/25 bg-stone-light/10 shadow-lg">
           <AnimatePresence mode="wait">
             <motion.img
               key={zone.id}
@@ -145,14 +145,14 @@ export default function LuxuryInteriorShowcase({ onOpenConcierge }: LuxuryInteri
                   <Plus className="w-4 h-4 text-white group-hover:rotate-45 transition-transform duration-300" />
                 </button>
 
-                {/* Info Card Popover */}
+                {/* Info Card Popover (Desktop only) */}
                 <AnimatePresence>
                   {isSelected && (
                     <motion.div
                       initial={{ opacity: 0, y: 10, scale: 0.95 }}
                       animate={{ opacity: 1, y: 0, scale: 1 }}
                       exit={{ opacity: 0, scale: 0.95 }}
-                      className="absolute left-1/2 -translate-x-1/2 bottom-12 w-64 bg-warm-white border border-stone/25 p-5 rounded-sm shadow-xl z-30"
+                      className="absolute left-1/2 -translate-x-1/2 bottom-12 w-64 bg-warm-white border border-stone/25 p-5 rounded-sm shadow-xl z-30 hidden md:block"
                     >
                       <div className="flex justify-between items-start mb-2">
                         <span className="font-serif text-sm font-bold text-matte-black">
@@ -188,6 +188,48 @@ export default function LuxuryInteriorShowcase({ onOpenConcierge }: LuxuryInteri
               </div>
             );
           })}
+
+          {/* Dedicated Mobile/Tablet Aligned Popover Panel (Stays within image bounds) */}
+          <AnimatePresence>
+            {activeHotspot !== null && (
+              <motion.div
+                initial={{ opacity: 0, y: 15 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: 15 }}
+                transition={{ duration: 0.3 }}
+                className="absolute bottom-4 left-4 right-4 bg-warm-white/95 backdrop-blur-md border border-stone/25 p-5 rounded-sm shadow-2xl z-30 md:hidden flex flex-col justify-between"
+              >
+                <div className="flex justify-between items-start mb-1.5">
+                  <span className="font-serif text-sm font-bold text-matte-black">
+                    {activeHotspot.item}
+                  </span>
+                  <span className="font-mono text-[10px] text-bronze font-bold">
+                    {activeHotspot.price}
+                  </span>
+                </div>
+                <p className="font-sans text-[11px] text-stone-dark font-light leading-relaxed mb-4">
+                  {activeHotspot.desc}
+                </p>
+                <div className="flex justify-between items-center border-t border-stone/15 pt-3">
+                  <button
+                    onClick={() => onOpenConcierge(`Spatial Spec: ${activeHotspot.item}`)}
+                    className="font-mono text-[8px] tracking-wider uppercase text-matte-black hover:text-bronze font-bold border-b border-matte-black pb-0.5 focus:outline-none cursor-pointer"
+                  >
+                    Request Spec Allocation
+                  </button>
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setActiveHotspot(null);
+                    }}
+                    className="p-1 hover:bg-stone/10 rounded-sm focus:outline-none cursor-pointer text-stone-dark"
+                  >
+                    <X className="w-3.5 h-3.5" />
+                  </button>
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
       </div>
     </section>

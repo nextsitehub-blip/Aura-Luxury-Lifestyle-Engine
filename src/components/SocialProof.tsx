@@ -152,7 +152,7 @@ export default function SocialProof() {
 
           {/* Frosted Glass Card Carousel Stage (7 columns) */}
           <div className="lg:col-span-7">
-            <div className="relative min-h-[440px] md:min-h-[380px] w-full">
+            <div className="relative min-h-[490px] sm:min-h-[400px] md:min-h-[380px] w-full">
               <AnimatePresence mode="wait">
                 {TESTIMONIALS.map((t, idx) => {
                   if (idx !== activeTestimonial) return null;
@@ -163,7 +163,7 @@ export default function SocialProof() {
                       animate={{ opacity: 1, x: 0 }}
                       exit={{ opacity: 0, x: -40 }}
                       transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-                      className="absolute inset-0 bg-white/40 backdrop-blur-xl border border-white/30 rounded-xs p-8 md:p-12 shadow-xl shadow-stone-light/40 flex flex-col justify-between"
+                      className="absolute inset-0 bg-white/40 backdrop-blur-xl border border-white/30 rounded-xs p-6 sm:p-8 md:p-12 shadow-xl shadow-stone-light/40 flex flex-col justify-between overflow-y-auto"
                     >
                       <div className="space-y-6">
                         {/* Rating stars & icon row */}
